@@ -95,6 +95,9 @@ Hardware virtualization extensions virtualize the hardware MMU, Intel VT-x provi
 
 ### References
 [1] [The evolution of an x86 virtual machine monitor](http://course.ece.cmu.edu/~ece845/docs/vmware-evolution.pdf)
+
 [2] [Xen and the Art of Virtualization](http://courses.cs.vt.edu/~cs5204/fall14-butt/lectures/xen.pdf)
+
 [3] [From Kernel to VMM](https://www.youtube.com/watch?v=FSw8Ff1SFLM)
+
 [4] [OSTEP](http://pages.cs.wisc.edu/~remzi/OSTEP/)
