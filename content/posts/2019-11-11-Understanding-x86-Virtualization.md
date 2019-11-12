@@ -10,7 +10,7 @@ In the late 1990s when internet consumption was booming and microprocessors were
 
 Virtualization enables a computer system to run multiple operating systems simultaneously and isolated from each other. x86 is the Instruction Set Architecture found in most PCs and Servers today, we will take a look at how x86 hardware is virtualized by applications like VMWare Workstation and QEMU.
 
-![Virtualized Ubuntu 19 running via VMWare on Windows 10](/img/Ubuntu16VMWare.jpg)
+![Virtualized Ubuntu 16 running via VMWare on Windows 10](/img/Ubuntu16VMWare.jpg)
 *Virtualized Ubuntu 19 running via VMWare on Windows 10*
 
 ## **Advantages of Virtualization**
