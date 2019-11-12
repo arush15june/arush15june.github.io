@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-    <title>Understanding x86 Virtualization :: silly onions — Opinionated articles from Aarush Ahuja. amateur code writer and string fiddler.</title>
+    <title>Understanding x86 Virtualization :: silly onions — Opinionated articles</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -26,7 +26,7 @@
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Understanding x86 Virtualization :: silly onions — Opinionated articles from Aarush Ahuja. amateur code writer and string fiddler." />
+<meta name="twitter:title" content="Understanding x86 Virtualization :: silly onions — Opinionated articles" />
 <meta name="twitter:description" content="In the late 1990s when internet consumption was booming and microprocessors were growing by Moore&amp;rsquo;s law, A need to build large scale systems was arising. Traditionally, a single computer system runs a single operating system. Instead of adding more power to a single machine running applications, businesses like IBM and Microsoft started building reliable and performant distributed systems using unreliable commodity hardware. Datacenters expanded in capacity comprising thousands of physical machines serving applications on the internet." />
 <meta name="twitter:site" content="/" />
 <meta name="twitter:creator" content="" />
@@ -35,7 +35,7 @@
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Understanding x86 Virtualization :: silly onions — Opinionated articles from Aarush Ahuja. amateur code writer and string fiddler.">
+<meta property="og:title" content="Understanding x86 Virtualization :: silly onions — Opinionated articles">
 <meta property="og:description" content="In the late 1990s when internet consumption was booming and microprocessors were growing by Moore&amp;rsquo;s law, A need to build large scale systems was arising. Traditionally, a single computer system runs a single operating system. Instead of adding more power to a single machine running applications, businesses like IBM and Microsoft started building reliable and performant distributed systems using unreliable commodity hardware. Datacenters expanded in capacity comprising thousands of physical machines serving applications on the internet." />
 <meta property="og:url" content="/posts/2019-11-11-understanding-x86-virtualization/" />
 <meta property="og:site_name" content="Understanding x86 Virtualization" />
@@ -148,7 +148,7 @@ In the late 1990s when internet consumption was booming and microprocessors were
 
 <p>Virtualization enables a computer system to run multiple operating systems simultaneously and isolated from each other. x86 is the Instruction Set Architecture found in most PCs and Servers today, we will take a look at how x86 hardware is virtualized by applications like VMWare Workstation and QEMU.</p>
 
-<p><img src="/img/Ubuntu16VMWare.jpg" alt="Virtualized Ubuntu 19 running via VMWare on Windows 10" />
+<p><img src="/img/Ubuntu16VMWare.jpg" alt="Virtualized Ubuntu 16 running via VMWare on Windows 10" />
 <em>Virtualized Ubuntu 19 running via VMWare on Windows 10</em></p>
 
 <h2 id="advantages-of-virtualization"><strong>Advantages of Virtualization</strong></h2>
@@ -232,6 +232,16 @@ In the late 1990s when internet consumption was booming and microprocessors were
 <p><img src="/img/shadow-page-table.jpg" alt="shadow-page-table.jpg" /></p>
 
 <p>Hardware virtualization extensions virtualize the hardware MMU, Intel VT-x provides this in the form of the Extended Page Table (EPT). Intel x86 CPU&rsquo;s provides the %CR3 register which contains the pointer to the hardware page table and hardware instructions which can walk the page table and read the required page. EPT virtualizes the %CR3 register via the EPTPTR for each virtual machine and provides individual hardware walked page tables.</p>
+
+<h3 id="references">References</h3>
+
+<p>[1] <a href="http://course.ece.cmu.edu/~ece845/docs/vmware-evolution.pdf">The evolution of an x86 virtual machine monitor</a></p>
+
+<p>[2] <a href="http://courses.cs.vt.edu/~cs5204/fall14-butt/lectures/xen.pdf">Xen and the Art of Virtualization</a></p>
+
+<p>[3] <a href="https://www.youtube.com/watch?v=FSw8Ff1SFLM">From Kernel to VMM</a></p>
+
+<p>[4] <a href="http://pages.cs.wisc.edu/~remzi/OSTEP/">OSTEP</a></p>
 
   </div>
   
