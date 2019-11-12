@@ -92,3 +92,9 @@ The VMM virtualizes the MMU of the CPU in the software using the virtual memory 
 ![shadow-page-table.jpg](/img/shadow-page-table.jpg)
 
 Hardware virtualization extensions virtualize the hardware MMU, Intel VT-x provides this in the form of the Extended Page Table (EPT). Intel x86 CPU's provides the %CR3 register which contains the pointer to the hardware page table and hardware instructions which can walk the page table and read the required page. EPT virtualizes the %CR3 register via the EPTPTR for each virtual machine and provides individual hardware walked page tables.
+
+### References
+[1] [The evolution of an x86 virtual machine monitor](http://course.ece.cmu.edu/~ece845/docs/vmware-evolution.pdf)
+[2] [Xen and the Art of Virtualization](http://courses.cs.vt.edu/~cs5204/fall14-butt/lectures/xen.pdf)
+[3] [From Kernel to VMM](https://www.youtube.com/watch?v=FSw8Ff1SFLM)
+[4] [OSTEP](http://pages.cs.wisc.edu/~remzi/OSTEP/)
