@@ -23,7 +23,7 @@ staticDir = ["static"]
   [languages.en]
     languageName = "English"
     title = "silly onions"
-    subtitle = "Opinionated articles from Aarush Ahuja. amateur code writer and string fiddler."
+    subtitle = "Opinionated articles"
     keywords = ""
     copyright = ""
     menuMore = "Show more"

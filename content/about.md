@@ -4,7 +4,8 @@ date = "2019-11-12"
 author = "arush15june"
 +++
 
-# Hi there
+# Aarush Ahuja
+## amateur code writer and string fiddler.
 
 My name is Aarush Ahuja. On the internet, I am often known as `arush15june`. My posts here represent my opinions on technologies I dabble in. Currently, I have my curiosity in distributed systems and trying to make sense of how computers work. Apart from computers, I also have fun playing the guitar (An Ibanez GRG170DX with a Cort CM15R Amp, a Yamaha F310).
 
