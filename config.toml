@@ -4,6 +4,7 @@ theme = "terminal"
 paginate = 5
 staticDir = ["static"]
 disqusShortname = "arush15june-github-io"
+googleAnalytics = "UA-99588570-3"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
