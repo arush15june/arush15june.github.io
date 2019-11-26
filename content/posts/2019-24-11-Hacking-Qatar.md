@@ -75,7 +75,7 @@ We confirmed the reverse engineered protocol by tuning the HackRF to 433.92 MHz 
 
 ![URH and Pager](/img/URHpager.png)
 
-The demodoulated PCM signal in URH correctly represents the reverse engineering protocol.
+The demodoulated PWM signal in URH correctly represents the reverse engineering protocol.
 
 ### TODO: Fortress Security System
 
