@@ -34,7 +34,7 @@ A week before the competition we were notified of the 12 devices that we would b
 
 The whole event was divided into 4 sections of 2 hours each over 2 days which was annoying to produce any concrete results, on top of that we were, at first, not allowed to dismantle the devices though we did open them through and packed them back again neatly before the end of the competition.
 
-Our measly toolkit which we brought from home consisted of Multimeter's, cheap Arduinos, a CP2102 based USB FTDI board, a Cypress FX2 based el cheapo [logic analyzer](https://robu.in/product/usb-logic-analyze-24m-8ch-mcu-arm-fpga-dsp-debug-tool/) having 8 channels paired with the fantastic open source software [Sigrok](https://sigrok.org/) and [PulseView](https://sigrok.org/wiki/PulseView), a variant of the RTL-SDR, and a FOSSASIA [PSLab](https://pslab.io/).
+Our measly toolkit which we brought from home consisted of Multimeter's, cheap Arduinos, a CP2102 based USB FTDI board, a Cypress FX2 based el cheapo [logic analyzer](https://robu.in/product/usb-logic-analyze-24m-8ch-mcu-arm-fpga-dsp-debug-tool/) having 8 channels paired with the fantastic open source software [Sigrok](https://sigrok.org/) and [PulseView](https://sigrok.org/wiki/PulseView), a variant of the RTL-SDR, and a FOSSASIA [PSLab](https://pslab.io/). Shoutout to [Open Tech Lab](https://www.youtube.com/channel/UCeF7JKNXOy0jpMOxpgbZcpg) for its immensely information videos from which I learned to make use of Sigrok and PulseView.
 
 [This](https://labs.portcullis.co.uk/blog/hardware-hacking-how-to-train-a-team/) also turned out to be very useful.
 
