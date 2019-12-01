@@ -34,7 +34,7 @@ A week before the competition we were notified of the 12 devices that we would b
 
 The whole event was divided into 4 sections of 2 hours each over 2 days which was annoying to produce any concrete results, on top of that we were, at first, not allowed to dismantle the devices though we did open them through and packed them back again neatly before the end of the competition.
 
-Our measly toolkit which we brought from home consisted of Multimeter's, cheap Arduinos, a CP2102 based USB FTDI board, a Cypress FX2 based el cheapo [logic analyzer](https://robu.in/product/usb-logic-analyze-24m-8ch-mcu-arm-fpga-dsp-debug-tool/) having 8 channels paired with the fantastic open source software [Sigrok](https://sigrok.org/) and [PulseView](https://sigrok.org/wiki/PulseView), a variant of the RTL-SDR, and a FOSSASIA [PSLab](https://pslab.io/). Shoutout to [Open Tech Lab](https://www.youtube.com/channel/UCeF7JKNXOy0jpMOxpgbZcpg) for its immensely information videos from which I learned to make use of Sigrok and PulseView.
+Our toolkit which we brought from home consisted of Multimeter's, cheap Arduinos, a CP2102 based USB FTDI board, a Cypress FX2 based el cheapo [logic analyzer](https://robu.in/product/usb-logic-analyze-24m-8ch-mcu-arm-fpga-dsp-debug-tool/) having 8 channels paired with the fantastic open source software [Sigrok](https://sigrok.org/) and [PulseView](https://sigrok.org/wiki/PulseView), a variant of the RTL-SDR, and a FOSSASIA [PSLab](https://pslab.io/). All my love to [Open Tech Lab](https://www.youtube.com/channel/UCeF7JKNXOy0jpMOxpgbZcpg) for its immensely information videos from which I learned so much about SDRs, electronics and using Sigrok and PulseView.
 
 [This](https://labs.portcullis.co.uk/blog/hardware-hacking-how-to-train-a-team/) also turned out to be very useful.
 
@@ -75,9 +75,38 @@ We confirmed the reverse engineered protocol by tuning the HackRF to 433.92 MHz 
 
 ![URH and Pager](/img/URHpager.png)
 
-The demodoulated PWM signal in URH correctly represents the reverse engineering protocol.
+The demodoulated PWM signal in URH correctly represents the reverse engineering protocol. Due to its fixed nature, the protocol is easily replayable using an inexpensive 433MHz Transceiver module and an Arduino or an expensive Tx-capable SDR (like the HackRF we had).
 
-### TODO: Fortress Security System
+### [Fortress Security System](https://www.fortresssecuritystore.com/wireless-alarm-system-bundles/s03-wifi-alarm-system-kits.html)
+
+It is a security system which lets you rig your house with battery powered sensors communicating with the base station over wireless radio. The base station exposes an interface over wifi to allow control via an Android App. We were given the Fortress S03 kit which only has wifi, they also have other kits which are able to communicate over 3G and 4G.
+
+The first step, use and understand the device. The S03 kit contains a base station and many peripherals, this included: a Remote Key Fob, a Panic Button, a Door Contact Sensor, and a PIR Sensor. This means you put the PIR and Contact sensors all over your house and arm the system which rings a high-pitched noise whenever someone passes them and wake you up. 
+
+![Fortress S03 PCB](/img/fortresspcb.jfif)
+
+The product website and manual wasn't very descriptive of the hardware used in the system. So we opened up the base station and the peripherals, inside we found familiar chips and exposed pads. The main CPU was a Mediatek MT6261, a trusty ESP8266 for WiFi, and a 433MHz **receiver** (SYN510R), no transmitter. This revealed how the peripherals communicated to the base station and a new attack surface for us to research.
+
+The PCB had 5 conveniently marked and exposed pads near the ESP8266 named V, G, IO, **RX, TX**. Hoping it to be a raw UART to the ESP8266, I connected the FTDI board and opened Putty in the search of its baud rate. I tried the common baud rates found online with ESP8266 projects, 9600, 115200, etc. Didn't work. Finally, I opened up the Arduino IDE and it's serial monitor and scrolled through its list of conveniently listed common baud rates and found ASCII logs of the wifi connection at 250000 baud/s. Unfortunately, The ESP8266 didn't accept any input over the UART port (and/or we weren't able to find a way to trigger any mode if there was any).
+
+![Putty ESP8266 UART Logs](/img/putty-esp-uart.png)
+**Debug logs from the ESP8266**
+
+We knew the peripherals communicated over 433MHz RF. Using [Universal Radio Hacker](https://github.com/jopohl/urh) and the HackRF, I looked at the signals sent out by the peripherals like the Key Fob and the Panic Button. Suspecting them to be common protocols instead of decoding them by my own, some googling suggested a popular library [RTL_433](https://github.com/merbanan/rtl_433) for the RTL-SDR which decoded protocols from many generic 433MHz devices. Setting up RTL_433 on my Manjaro VM was a breeze and it decoded the protocols from the peripherals: The key fob, panic button (which was the same device as the key fob essentially), PIR Sensor and Door Contact Sensor. All of them were decoded by RTL_433 and corresponded correctly to the actions performed. 
+
+![Keyfob](/img/keyfob.jfif)
+**Keyfob**
+
+![Keyfob Decode](/img/keyfob-code.png)
+**Decoded data from the Keyfob**
+
+![PIR Decode](/img/PIR-Sensor.png)
+**Decoded PIR sensor protocol**
+
+![PIR Sensor](/img/PIR.jfif)
+**PIR Sensor**
+
+The protocols used by the peripherals were fixed key codes and were easily replayable. The keyfobs are able to control the arming and disarming of the base station, replaying its signals an attacker can disarm or arm the system at will with a 433 MHz trasnmitter or an SDR.
 
 ## Conclusion
-We reported all our findings from the Nadamoo Restaurant Pager, Ring Video Doorbell, Lefun Wireless Camera, Letscom Activity Tracker and the Fortress Security to the organizers. Turns out we fared well compared to the competitors and were awarded the second prize at the competition!
+We reported all our findings from the Nadamoo Restaurant Pager, Ring Video Doorbell, Lefun Wireless Camera, Letscom Activity Tracker and the Fortress Security to the organizers. Turns out we fared well compared to the competitors and were awarded the second prize at the competition! We met many phenomenal people of the hacker community and had an amazing trip in Qatar.
