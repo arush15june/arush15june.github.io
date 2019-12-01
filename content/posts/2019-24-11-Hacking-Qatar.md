@@ -32,7 +32,7 @@ A week before the competition we were notified of the 12 devices that we would b
 
 ![Hardware](/img/hardware.jpg)
 
-The whole event was divided into 4 sections of 2 hours each over 2 days which was annoying to produce any concrete results, on top of that we were, at first, not allowed to dismantle the devices though we did open them through and packed them back again neatly before the end of the competition.
+The whole event was divided into 4 sections of 2 hours each over 2 days which was annoying to produce any concrete results, on top of that we were, at first, not allowed to dismantle the devices but were allowed on the condition that the device's integrity be maintained. We opened the devices and packed them back again neatly before the end of the competition.
 
 Our toolkit which we brought from home consisted of Multimeter's, cheap Arduinos, a CP2102 based USB FTDI board, a Cypress FX2 based el cheapo [logic analyzer](https://robu.in/product/usb-logic-analyze-24m-8ch-mcu-arm-fpga-dsp-debug-tool/) having 8 channels paired with the fantastic open source software [Sigrok](https://sigrok.org/) and [PulseView](https://sigrok.org/wiki/PulseView), a variant of the RTL-SDR, and a FOSSASIA [PSLab](https://pslab.io/). All my love to [Open Tech Lab](https://www.youtube.com/channel/UCeF7JKNXOy0jpMOxpgbZcpg) for its immensely information videos from which I learned so much about SDRs, electronics and using Sigrok and PulseView.
 
@@ -92,7 +92,7 @@ The PCB had 5 conveniently marked and exposed pads near the ESP8266 named V, G, 
 ![Putty ESP8266 UART Logs](/img/putty-esp-uart.png)
 **Debug logs from the ESP8266**
 
-We knew the peripherals communicated over 433MHz RF. Using [Universal Radio Hacker](https://github.com/jopohl/urh) and the HackRF, I looked at the signals sent out by the peripherals like the Key Fob and the Panic Button. Suspecting them to be common protocols instead of decoding them by my own, some googling suggested a popular library [RTL_433](https://github.com/merbanan/rtl_433) for the RTL-SDR which decoded protocols from many generic 433MHz devices. Setting up RTL_433 on my Manjaro VM was a breeze and it decoded the protocols from the peripherals: The key fob, panic button (which was the same device as the key fob essentially), PIR Sensor and Door Contact Sensor. All of them were decoded by RTL_433 and corresponded correctly to the actions performed. 
+We knew the peripherals communicated over 433MHz RF. Using [Universal Radio Hacker](https://github.com/jopohl/urh) and the HackRF, I looked at the signals sent out by the peripherals like the Key Fob and the Panic Button. Suspecting them to be common protocols instead of decoding them by my own, so me googling suggested a popular library [RTL_433](https://github.com/merbanan/rtl_433) for the RTL-SDR which decoded protocols from many generic 433MHz devices. Setting up RTL_433 on my Manjaro VM was a breeze and it decoded the protocols from the peripherals: The key fob, panic button (which was the same device as the key fob essentially), PIR Sensor and Door Contact Sensor. All of them were decoded by RTL_433 and corresponded correctly to the actions performed. 
 
 ![Keyfob](/img/keyfob.jfif)
 **Keyfob**
