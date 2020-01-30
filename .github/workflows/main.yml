@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-      ref: 'gh-pages'
+        ref: 'gh-pages'
     - name: Checkout submodules
       shell: bash
       run: |
