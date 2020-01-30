@@ -36,4 +36,4 @@ jobs:
         PUBLISH_BRANCH: master
         PUBLISH_DIR: .
       with:
-        keepFiles: true
+        forceOrphan: true
