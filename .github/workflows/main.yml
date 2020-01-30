@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - with:
+      with:
       ref: 'gh-pages'
     - name: Checkout submodules
       shell: bash
