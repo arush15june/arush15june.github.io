@@ -17,7 +17,9 @@
       <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/2019-11-11-understanding-x86-virtualization/</guid>
-      <description>In the late 1990s when internet consumption was booming and microprocessors were growing by Moore&amp;rsquo;s law, A need to build large scale systems was arising. Traditionally, a single computer system runs a single operating system. Instead of adding more power to a single machine running applications, businesses like IBM and Microsoft started building reliable and performant distributed systems using unreliable commodity hardware. Datacenters expanded in capacity comprising thousands of physical machines serving applications on the internet.</description>
+      <description>Virtualization enables a computer system to run multiple operating systems simultaneously and isolated from each other. x86 is the Instruction Set Architecture found in most PCs and Servers today, we will take a look at how x86 hardware is virtualized by applications like VMWare Workstation and QEMU.
+Virtualized Ubuntu 19 running via VMWare on Windows 10
+Advantages of Virtualization Developers can have multiple virtual machines running various environments required for development and testing.</description>
     </item>
     
   </channel>

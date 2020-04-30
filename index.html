@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.59.1" />
+	<meta name="generator" content="Hugo 0.69.1" />
   
     <title>silly onions — Opinionated articles</title>
   
@@ -135,6 +135,46 @@ if (!doNotTrack) {
   
   <div class="post on-list">
     <h1 class="post-title">
+      <a href="/posts/2020-04-30-binrec/">Papers: BinRec: Dynamic Binary Lifting and Recompilation</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2020-04-30
+      </span>
+      
+    </div>
+
+    
+    <span class="post-tags">
+      
+      #<a href="/tags/recompilation/">recompilation</a>&nbsp;
+      
+      #<a href="/tags/assembly/">assembly</a>&nbsp;
+      
+      #<a href="/tags/llvm/">LLVM</a>&nbsp;
+      
+    </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      A summary of the paper BinRec: Dynamic Binary Lifting and Recompilation presented at EuroSys'20.  BinRec is novel tool for binary lifting and recompilation which uses dynamic techniques to generate new binaries, in contrast to existing biniary recompilers like McSema and Rev.Ng which use static analysis and heuristic techniques to facilitate recompilation. BinRec employs dynamic analysis to lift binary code to LLVM IR and subsequently lowers it back to machine code, producing a “recovered” binary.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/2020-04-30-binrec/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
       <a href="/posts/2020-28-01-chord/">Practical Papers: Chord, A Scalable Peer-To-Peer Lookup Protocol</a></h1>
     <div class="post-meta">
       <span class="post-date">
@@ -152,6 +192,8 @@ if (!doNotTrack) {
       
       #<a href="/tags/dht/">dht</a>&nbsp;
       
+      #<a href="/tags/chord/">chord</a>&nbsp;
+      
     </span>
     
 
@@ -160,7 +202,7 @@ if (!doNotTrack) {
     <div class="post-content">
       
       
-      Chord is one of the original Distributed Hash Table projects from the MIT PDOS group at Computer Science and AI Laboratory, MIT. Here is a link to the original research for your reading pleasure. I was introduced to Chord by the book Distributed Systems by Maarten van Steen and Andrew S. Tanenbaum (p. 246, p. 248) as a solution for implementing a decentralized naming system or a structured decentralized overlay network.
+      The post is an explanation of the Chord protocol and discussion of my implementation of the same in Golang.  Chord is one of the original Distributed Hash Table projects from the MIT PDOS group at Computer Science and AI Laboratory, MIT. Here is a link to the original research for your reading pleasure. I was introduced to Chord by the book Distributed Systems by Maarten van Steen and Andrew S.
       
       
     </div>
@@ -252,7 +294,9 @@ if (!doNotTrack) {
     <div class="post-content">
       
       
-      In the late 1990s when internet consumption was booming and microprocessors were growing by Moore&rsquo;s law, A need to build large scale systems was arising. Traditionally, a single computer system runs a single operating system. Instead of adding more power to a single machine running applications, businesses like IBM and Microsoft started building reliable and performant distributed systems using unreliable commodity hardware. Datacenters expanded in capacity comprising thousands of physical machines serving applications on the internet.
+      Virtualization enables a computer system to run multiple operating systems simultaneously and isolated from each other. x86 is the Instruction Set Architecture found in most PCs and Servers today, we will take a look at how x86 hardware is virtualized by applications like VMWare Workstation and QEMU.
+Virtualized Ubuntu 19 running via VMWare on Windows 10
+Advantages of Virtualization Developers can have multiple virtual machines running various environments required for development and testing.
       
       
     </div>
@@ -302,55 +346,6 @@ Some Points  Windows 10 Home came preinstalled on my laptop (Dell 7567). I like 
     <div>
       <a class="read-more button"
         href="/posts/2018-11-26-windows-productivity-max/">Read more →</a>
-    </div>
-    
-  </div>
-  
-  <div class="post on-list">
-    <h1 class="post-title">
-      <a href="/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/">SKYHack 2018 Building for Disaster Relief</a></h1>
-    <div class="post-meta">
-      <span class="post-date">
-        2018-10-22
-      </span>
-      
-    </div>
-
-    
-    <span class="post-tags">
-      
-      #<a href="/tags/skyhack/">skyhack</a>&nbsp;
-      
-      #<a href="/tags/chhattisgarh/">chhattisgarh</a>&nbsp;
-      
-      #<a href="/tags/incubator/">incubator</a>&nbsp;
-      
-      #<a href="/tags/hackathon/">hackathon</a>&nbsp;
-      
-      #<a href="/tags/android/">android</a>&nbsp;
-      
-      #<a href="/tags/react/">react</a>&nbsp;
-      
-      #<a href="/tags/react-native/">react-native</a>&nbsp;
-      
-    </span>
-    
-
-    
-
-    <div class="post-content">
-      
-      
-      SKYHack 2018: Building for Disaster Relief This blog post details my experience in participating in SkyHack 2018, a hackathon by the Chhattisgarh Government to build applications for Android Phones going to be distributed as part of the Sanchar Kranti Yojana.
-The process of participation included selecting a social problem to solve from a set of 6 statements, submitted a proposal of our solution before 31st July 2018, Implementing a PoC of the solution and pitch our solutions at 36inc, Raipur.
-      
-      
-    </div>
-
-    
-    <div>
-      <a class="read-more button"
-        href="/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/">Read more →</a>
     </div>
     
   </div>

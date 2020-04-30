@@ -3,7 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/assembly/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/llvm/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/paper-reading/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020-04-30-binrec/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/recompilation/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/chord/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,27 +63,12 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/posts/2020-28-01-chord/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/project/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -79,6 +104,11 @@
   
   <url>
     <loc>/about/</loc>
+    <lastmod>2019-11-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2019-11-12T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,12 +193,12 @@
   </url>
   
   <url>
-    <loc>/categories/hackathon/</loc>
+    <loc>/tags/hackathon/</loc>
     <lastmod>2018-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/hackathon/</loc>
+    <loc>/categories/hackathon/</loc>
     <lastmod>2018-10-22T00:00:00+00:00</lastmod>
   </url>
   
