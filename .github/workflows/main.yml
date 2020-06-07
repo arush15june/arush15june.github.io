@@ -22,15 +22,15 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.2
       with:
-        hugo-version: '0.68.3'
+        hugo-version: '0.71.1'
         extended: true
 
     - name: Build
-      run: hugo --destination . --minify
+      run: hugo --minify
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: master
-        PUBLISH_DIR: .
+        PUBLISH_DIR: ./public
