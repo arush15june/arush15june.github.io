@@ -6,6 +6,7 @@
     <description>Recent content in distributed-systems on silly onions</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Aarush Ahuja :: 2020</copyright>
     <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/distributed-systems/index.xml" rel="self" type="application/rss+xml" />
