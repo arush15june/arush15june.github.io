@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chord on silly onions</title>
+    <link>/tags/chord/</link>
+    <description>Recent content in chord on silly onions</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Aarush Ahuja :: 2020</copyright>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/chord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Practical Papers: Chord, A Scalable Peer-To-Peer Lookup Protocol</title>
+      <link>/posts/2020-28-01-chord/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-28-01-chord/</guid>
+      <description>The post is an explanation of the Chord protocol and discussion of my implementation of the same in Golang.  Chord is one of the original Distributed Hash Table projects from the MIT PDOS group at Computer Science and AI Laboratory, MIT. Here is a link to the original research for your reading pleasure. I was introduced to Chord by the book Distributed Systems by Maarten van Steen and Andrew S.</description>
+    </item>
+    
+  </channel>
+</rss>

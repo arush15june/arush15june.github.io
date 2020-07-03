@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>systems on silly onions</title>
+    <link>/tags/systems/</link>
+    <description>Recent content in systems on silly onions</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Aarush Ahuja :: 2020</copyright>
+    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/systems/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Understanding x86 Virtualization</title>
+      <link>/posts/2019-11-11-understanding-x86-virtualization/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-11-11-understanding-x86-virtualization/</guid>
+      <description>Virtualization enables a computer system to run multiple operating systems simultaneously and isolated from each other. x86 is the Instruction Set Architecture found in most PCs and Servers today, we will take a look at how x86 hardware is virtualized by applications like VMWare Workstation and QEMU.
+Virtualized Ubuntu 19 running via VMWare on Windows 10
+Advantages of Virtualization Developers can have multiple virtual machines running various environments required for development and testing.</description>
+    </item>
+    
+  </channel>
+</rss>

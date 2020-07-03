@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>CSAW CTF Quals 2018 Writeup :: silly onions — Opinionated articles</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="CSAW CTF Quals 2018 The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team eavesdroppers from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.
+Challenges bin_t - Misc On connecting to the given server and port using nc misc.chal.csaw.io 9001, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/posts/2018-09-18-ctf-writeup-csaw-quals-2018/" />
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99588570-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/red.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="/img/favicon/red.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="CSAW CTF Quals 2018 Writeup :: silly onions — Opinionated articles" />
+<meta name="twitter:description" content="CSAW CTF Quals 2018 The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team eavesdroppers from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.
+Challenges bin_t - Misc On connecting to the given server and port using nc misc.chal.csaw.io 9001, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree." />
+<meta name="twitter:site" content="/" />
+<meta name="twitter:creator" content="batterycharger" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="CSAW CTF Quals 2018 Writeup :: silly onions — Opinionated articles">
+<meta property="og:description" content="CSAW CTF Quals 2018 The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team eavesdroppers from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.
+Challenges bin_t - Misc On connecting to the given server and port using nc misc.chal.csaw.io 9001, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree." />
+<meta property="og:url" content="/posts/2018-09-18-ctf-writeup-csaw-quals-2018/" />
+<meta property="og:site_name" content="CSAW CTF Quals 2018 Writeup" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:section" content="writeup" />
+<meta property="article:published_time" content="2018-09-18 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    sillyonions
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/2018-09-18-ctf-writeup-csaw-quals-2018/">CSAW CTF Quals 2018 Writeup</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2018-09-18
+    </span>
+    
+    
+    <span class="post-author">::
+      batterycharger
+    </span>
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/csaw/">csaw</a>&nbsp;
+    
+    #<a href="/tags/quals/">quals</a>&nbsp;
+    
+    #<a href="/tags/ctf/">ctf</a>&nbsp;
+    
+    #<a href="/tags/python/">python</a>&nbsp;
+    
+    #<a href="/tags/forensics/">forensics</a>&nbsp;
+    
+    #<a href="/tags/web/">web</a>&nbsp;
+    
+    #<a href="/tags/misc/">misc</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  <div class="post-content">
+    <h2 id="csaw-ctf-quals-2018">CSAW CTF Quals 2018</h2>
+<p>The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team <code>eavesdroppers</code> from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.</p>
+<h2 id="challenges">Challenges</h2>
+<h3 id="bin_t---misc"><code>bin_t</code> - Misc</h3>
+<p>On connecting to the given server and port using <code>nc misc.chal.csaw.io 9001</code>, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree.</p>
+<pre><code>Add these numbers to a AVL Binary Tree, then send them back in the preorder traversal!
+94,5,58,87,38,32,96,47,2,63,11,4,61,83,7,57,5,11,30,100,73,22,68,7,99,8,24,53,3,58,11,86,97,95,42,19,88,23,31,64,19,15,88,58,87,51,75,22,29,5,74,11,14,51,45,35,14,23,50,59,58,75,36,13,1,73,2,38,56,33,26,6,92,92,50,30,83,28,20,86,80,82,56,32,2,91,13,98,65,59,68,23,81,37,25,3,38,69,13,99
+Send the preorder traversal in a comma sperated list.
+</code></pre><p>Upon scouring the internet for some code to create an AVL Tree, I found an <code>AVLTree</code> Class in Python and glued it together with the server&rsquo;s response, upon sending the correct preorder traversal list (after going through multiple AVL Tree classes!), the flag was received.</p>
+<pre><code>38,27,8,3,1,0,6,4,14,12,9,10,13,22,17,15,19,26,24,32,30,29,31,34,33,37,35,73,57,49,45,41,40,43,48,47,55,52,66,62,61,64,63,65,70,69,71,90,85,79,78,82,83,87,86,89,97,92,99,98,100
+you got it!
+flag{HOW_WAS_IT_NAVIGATING_THAT_FOREST?}
+</code></pre><p>Flag: <strong>flag{HOW_WAS_IT_NAVIGATING_THAT_FOREST?}</strong></p>
+<p>Code: <a href="https://gist.github.com/arush15june/d44efc6af73d81cc4aa5a3a560c8fa82">Gist</a></p>
+<h3 id="sso---web"><code>sso</code> - Web</h3>
+<p><strong>TODO</strong></p>
+<h3 id="algebra---misc"><code>Algebra</code> - Misc</h3>
+<p><strong>TODO</strong></p>
+<h3 id="ldab---web"><code>Ldab</code> - Web</h3>
+<p><strong>TODO</strong></p>
+<h3 id="take-an-l---misc"><code>Take an L</code> - Misc</h3>
+<p><strong>TODO</strong></p>
+<h3 id="rewind---forensics"><code>Rewind</code> - Forensics</h3>
+<p><strong>TODO</strong></p>
+<h3 id="simple_recovery---forensics"><code>simple_recovery</code> - Forensics</h3>
+<p><strong>TODO</strong></p>
+
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Read other posts</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/">
+          <span class="button__icon">←</span>
+          <span class="button__text">SKYHack 2018 Building for Disaster Relief</span>
+        </a>
+      </span>
+      
+      
+      <span class="button next">
+        <a href="/posts/2018-08-02-building-reversee/">
+          <span class="button__text">Building ReverSEE</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "arush15june-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Aarush Ahuja :: 2020</span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
