@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>chhattisgarh on silly onions</title>
-    <link>/tags/chhattisgarh/</link>
-    <description>Recent content in chhattisgarh on silly onions</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Aarush Ahuja :: 2020</copyright>
-    <lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/chhattisgarh/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>SKYHack 2018 Building for Disaster Relief</title>
-      <link>/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/</link>
-      <pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/</guid>
-      <description>SKYHack 2018: Building for Disaster Relief This blog post details my experience in participating in SkyHack 2018, a hackathon by the Chhattisgarh Government to build applications for Android Phones going to be distributed as part of the Sanchar Kranti Yojana.
-The process of participation included selecting a social problem to solve from a set of 6 statements, submitted a proposal of our solution before 31st July 2018, Implementing a PoC of the solution and pitch our solutions at 36inc, Raipur.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chhattisgarh on silly onions</title><link>/tags/chhattisgarh/</link><description>Recent content in chhattisgarh on silly onions</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Aarush Ahuja :: 2020</copyright><lastBuildDate>Mon, 22 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/chhattisgarh/index.xml" rel="self" type="application/rss+xml"/><item><title>SKYHack 2018 Building for Disaster Relief</title><link>/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/</link><pubDate>Mon, 22 Oct 2018 00:00:00 +0000</pubDate><guid>/posts/2018-10-22-skyhack-2018-building-for-disaster-relief/</guid><description>SKYHack 2018: Building for Disaster Relief This blog post details my experience in participating in SkyHack 2018, a hackathon by the Chhattisgarh Government to build applications for Android Phones going to be distributed as part of the Sanchar Kranti Yojana.
+The process of participation included selecting a social problem to solve from a set of 6 statements, submitted a proposal of our solution before 31st July 2018, Implementing a PoC of the solution and pitch our solutions at 36inc, Raipur.</description></item></channel></rss>

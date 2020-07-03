@@ -1,37 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>python on silly onions</title>
-    <link>/tags/python/</link>
-    <description>Recent content in python on silly onions</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Aarush Ahuja :: 2020</copyright>
-    <lastBuildDate>Tue, 18 Sep 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>CSAW CTF Quals 2018 Writeup</title>
-      <link>/posts/2018-09-18-ctf-writeup-csaw-quals-2018/</link>
-      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2018-09-18-ctf-writeup-csaw-quals-2018/</guid>
-      <description>CSAW CTF Quals 2018 The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team eavesdroppers from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.
-Challenges bin_t - Misc On connecting to the given server and port using nc misc.chal.csaw.io 9001, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree.</description>
-    </item>
-    
-    <item>
-      <title>Building ReverSEE</title>
-      <link>/posts/2018-08-02-building-reversee/</link>
-      <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2018-08-02-building-reversee/</guid>
-      <description>Building ReverSEE This post aims to cover the developement process of ReverSEE, a reverse image search hoopla I built to essentialy learn to use PyTorch.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python on silly onions</title><link>/tags/python/</link><description>Recent content in python on silly onions</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Aarush Ahuja :: 2020</copyright><lastBuildDate>Tue, 18 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>CSAW CTF Quals 2018 Writeup</title><link>/posts/2018-09-18-ctf-writeup-csaw-quals-2018/</link><pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate><guid>/posts/2018-09-18-ctf-writeup-csaw-quals-2018/</guid><description>CSAW CTF Quals 2018 The Quals for the CSAW CTF happened from 14th-16th September 2018, I participated with my team eavesdroppers from the India region. After the 48 hour toil, we ended up 8th Regionally and 87th Globally.
+Challenges bin_t - Misc On connecting to the given server and port using nc misc.chal.csaw.io 9001, we receive a list of integers and and instructions to follow, i.e, insert the numbers in an AVL Tree and return the pre order traversal list of the balanced AVL Tree.</description></item><item><title>Building ReverSEE</title><link>/posts/2018-08-02-building-reversee/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>/posts/2018-08-02-building-reversee/</guid><description>Building ReverSEE This post aims to cover the developement process of ReverSEE, a reverse image search hoopla I built to essentialy learn to use PyTorch.
 a silly idea popular indian fashion website allows you to throw a picture of a random tshirt in their search bar and they&amp;rsquo;ll find you how a similar tshirt available in the store.
-Idea: How could i go about building something similar of my own? A Mini Reverse Image Search!</description>
-    </item>
-    
-  </channel>
-</rss>
+Idea: How could i go about building something similar of my own? A Mini Reverse Image Search!</description></item></channel></rss>
