@@ -27,7 +27,7 @@ jobs:
 
     - name: Build
       run: hugo --minify
-      environment:
+      env:
         HUGO_ENV: production
 
     - name: Deploy
