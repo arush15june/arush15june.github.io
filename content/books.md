@@ -6,6 +6,8 @@ author = "arush15june"
 
 # Book Recommendations
 
+- [My Goodreads Profile](https://www.goodreads.com/user/show/48522095-aarush-ahuja)
+
 | | | |
 | :-: | :-: | :-: |
 | ![OSTEP](http://pages.cs.wisc.edu/~remzi/OSTEP/book-cover-two.jpg) [Operating System: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/) | ![Masters Of Doom](https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1557932856l/222146._SY475_.jpg) [**Masters Of Doom**](https://www.goodreads.com/book/show/222146.Masters_of_Doom) | ![The Making of Prince of Persia](https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585588886l/52824295._SX318_.jpg) [The Making of Prince of Persia](https://www.goodreads.com/book/show/52824295-the-making-of-prince-of-persia) |
