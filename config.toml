@@ -42,3 +42,8 @@ googleAnalytics = "UA-99588570-3"
         identifier = "about"
         name = "About"
         url = "/about"
+
+      [[languages.en.menu.main]]
+        identifier = "books"
+        name = "Books"
+        url = "/books"
