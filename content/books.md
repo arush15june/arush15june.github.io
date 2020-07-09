@@ -1,9 +1,3 @@
-+++
-title = "Books"
-date = "2020-07-10"
-author = "arush15june"
-+++
-
 # Book Recommendations
 
 - [My Goodreads Profile](https://www.goodreads.com/user/show/48522095-aarush-ahuja)
