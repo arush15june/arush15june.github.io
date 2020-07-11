@@ -184,7 +184,7 @@ int main(int argc, char **argv)
 
 ### System Time
 
-For the current time-of-day and date, Windows uses the CMOS RTC at boot to initialize the *System Time* [10]. This time can be obtained by using the `[GetSystemTimeAsFileTime](https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimeasfiletime?redirectedfrom=MSDN)` function. System Time in windows can be adjusted by the user.
+For the current time-of-day and date, Windows uses the CMOS RTC at boot to initialize the *System Time* [10]. This time can be obtained by using the [`GetSystemTimeAsFileTime`](https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimeasfiletime?redirectedfrom=MSDN) function. System Time in windows can be adjusted by the user.
 
 ### Interrupt Time
 
@@ -262,7 +262,7 @@ Python provides `time.get_clock_info` in its time library to get implementation-
 
 Clock implementations in Python 3.8.2
 
-### `[monotonic](https://docs.python.org/3/library/time.html#time.monotonic)`
+### [`monotonic`](https://docs.python.org/3/library/time.html#time.monotonic)
 
 It returns the value of a monotonic clock, which might not necessarily be the highest resolution clock available in the system.  There are two functions `[time.monotonic](https://docs.python.org/3/library/time.html#time.perf_counter)` and `[time.monotonic_ns`](https://docs.python.org/3/library/time.html#time.monotonic_ns) available to access this clock which returns the value of the clock as fractional seconds.
 
@@ -270,13 +270,13 @@ On Windows, this clock is implemented using `GetTickCount64` which is a low-reso
 
 On Linux, this clock is implemented using `CLOCK_MONOTONIC` .
 
-### `[perf_counter](https://docs.python.org/3/library/time.html#time.perf_counter)`
+### [`perf_counter`](https://docs.python.org/3/library/time.html#time.perf_counter)
 
 It returns the value of a monotonic clock which is the highest resolution clock available in the system. There are two functions `[time.perf_counter](https://docs.python.org/3/library/time.html#time.perf_counter)` and `[time.perf_counter_ns](https://docs.python.org/3/library/time.html#time.perf_counter_ns)` available to access this clock which returns the value of the clock as fractional seconds.
 
 On Windows, this clock is implemented using `QueryPerformanceCounter` which in turn uses the invariant TSC internally.
 
-### `[time](https://docs.python.org/3/library/time.html#time.time)`
+### [`time`](https://docs.python.org/3/library/time.html#time.time)
 
 It returns the value of a wall clock as a floating-point number which represents the time since epoch in seconds. 
 
