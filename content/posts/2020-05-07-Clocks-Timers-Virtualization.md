@@ -264,7 +264,7 @@ Clock implementations in Python 3.8.2
 
 ### [`monotonic`](https://docs.python.org/3/library/time.html#time.monotonic)
 
-It returns the value of a monotonic clock, which might not necessarily be the highest resolution clock available in the system.  There are two functions `[time.monotonic](https://docs.python.org/3/library/time.html#time.perf_counter)` and `[time.monotonic_ns`](https://docs.python.org/3/library/time.html#time.monotonic_ns) available to access this clock which returns the value of the clock as fractional seconds.
+It returns the value of a monotonic clock, which might not necessarily be the highest resolution clock available in the system.  There are two functions [`time.monotonic`](https://docs.python.org/3/library/time.html#time.perf_counter) and [`time.monotonic_ns`](https://docs.python.org/3/library/time.html#time.monotonic_ns) available to access this clock which returns the value of the clock as fractional seconds.
 
 On Windows, this clock is implemented using `GetTickCount64` which is a low-resolution monotonic clock ([Windows Time](https://docs.microsoft.com/en-us/windows/win32/sysinfo/windows-time) as discussed above).
 
@@ -272,7 +272,7 @@ On Linux, this clock is implemented using `CLOCK_MONOTONIC` .
 
 ### [`perf_counter`](https://docs.python.org/3/library/time.html#time.perf_counter)
 
-It returns the value of a monotonic clock which is the highest resolution clock available in the system. There are two functions `[time.perf_counter](https://docs.python.org/3/library/time.html#time.perf_counter)` and `[time.perf_counter_ns](https://docs.python.org/3/library/time.html#time.perf_counter_ns)` available to access this clock which returns the value of the clock as fractional seconds.
+It returns the value of a monotonic clock which is the highest resolution clock available in the system. There are two functions [`time.perf_counter`](https://docs.python.org/3/library/time.html#time.perf_counter) and [`time.perf_counter_ns`](https://docs.python.org/3/library/time.html#time.perf_counter_ns) available to access this clock which returns the value of the clock as fractional seconds.
 
 On Windows, this clock is implemented using `QueryPerformanceCounter` which in turn uses the invariant TSC internally.
 
