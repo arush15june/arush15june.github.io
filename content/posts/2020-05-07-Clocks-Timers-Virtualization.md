@@ -68,52 +68,6 @@ Initially, the computer reads latest time from the battery-powered CMOS Real Tim
 
     It is an external hardware timer available on some newer systems. An HPET could be 32-or-64bit and can provider higher resolution than the PIT or CMOS RTC. Due to lax specifications, HPET implementations are not guaranteed to have a high resolution or low drift. It is designed to replace the PIT and CMOS in newer systems.
 
-# Virtualized Timekeeping
-
----
-
-Hypervisors like VMWare ESXi or Workstation virtualize all the above described timers for the virtual machine, though there might be trade-offs involved.
-
-- The virtualized PIT provides all the modes and three channels of the PIT timer, however, the sound generation timer might not correctly generate the frequency or duration for the requested sound. The virtualized PIT might not be able to generate high frequencies of requested interrupts, ex. 1000hz default on many Linux distros.
-- The virtualized CMOS RTC in VMWare emulates all functionalities (TOD, etc) of the RTC implemented as an offset of the host operating systems software clock. If the host clock's time is change, the guest's clock might also be changed. 
-In some systems, this can trigger an unexpected feedback loop where if the virtual machine is the time server for the host, they might go back and forth changing their clocks trying to synchronize with each other.
-- The virtualized APIC timer, ACPI timer and the TSC both present apparent time matching each other.
-
-I have not been able to find similar implementation information for KVM or other hypervisors.  
-
-### TSC Virtualization
-
-### KVM [5]
-
-In both Intel VT-x and AMD SVM, the TSC can be fully virtualized by trapping the `RDTSC`, `RDMSR`, `WRMSR` and `RDTSCP` instructions [5]. Also, it is possible to pass through the host TSC to the virtual machine. Both trapping and passthrough are implemented in KVM [5].
-
-Issues surrounding TSC synchronization arise from the fact that the CPUs frequency can be altered by the system for different reasons. This can change the rate of TSC per-processor. The Inter-CPU drift is even further amplified in the case of inter-socket drift in the case of multi-socket systems [7]. 
-
-A program reading the TSC from one core might get a different incorrect value of the TSC when reading it from another core. To mitigate this issue solutions include reading the processor ID using the CPUID instruction first and indexing into the TSC array to fetch the specific processors TSC or using the RDTSCP instruction which fetches the processor ID and the TSC value. 
-
-Apart from solutions in software, newer x86 CPUs also include an invariant TSC which operates independently of the CPUs current frequency, guaranteeing the rate of the TSC. This can even be used a wall-clock source.
-
-### VMWare [1]
-
-VMWare provides an exactly synchronized view of the TSC to the virtual machine [1], either backed by the physical TSC itself, or an emulated virtual TSC if the physical TSC turns out to be unsynchronized at the trade-off of increasing execution times of the `RDTSC` instruction. 
-
-### Hyper-V [3]
-
-Hyper-V, similar to VMWare's products, provides virtualized timer services based on a reference time source in the host. According to the Top-Level Functional Specifications (v6.0b), a per-virtual machine reference counter, four synthetic timers per-vCPU, one virtualized APIC timer per vCPU, two timer assists, and a partition reference time enlightenment based on support for an invariant TSC is available to the guest.
-
-- Reference Counter: A strictly monotonic constant rate timer seen by all virtual processors unaffected by processor or bus frequency. It runs at the same rate for all VMs, but reference counters between VM are not synchronized (no same absolute value). This counter counts as long as at least one vCPU in the VM is not suspended. This timer is exposed to the guest via a Model-specific Register (MSR).
-- Synthetic Timers: Virtualized interrupt-generataing one-shot or periodic timers. These timers are exposes to the guest via Model-specific Registers.
-- Partition Reference Time Enlightenment: An invariant time source for the virtual machine which does not require an intercept into the hypervisor. This is available only if a constant rate TSC is available on the host, as is the case with newer CPUs. 
-The invariant TSC solves the issues surrounding the older TSC implementation as its frequency remains constant irrespective of the CPU frequency, as was the case with older TSC implementation. This enlightened reference counter is exposed as a virtual reference TSC page in the guest physical addresses.
-
-{{< image src="/img/hyperv_clocksource.png" alt="HyperV Clocksource" position="center">}}
-
-In the WSL2 Kernel, the only available clocksource is based on this partition wide TSC enlightened clocksource.
-
-### VirtualBox [8]
-
-By default VirtualBox exposes the time sources available to the guest synchronized to the host's monotonic clock. However, there is also a special configuration available to make the virtual guest TSC reflect the actual time spent by the CPU executing the guest. Depending on the hardware TSC, it might be unreliable to use the TSC for measurements.
-
 # Clocks in Linux
 
 ---
@@ -287,6 +241,53 @@ On Linux, this is implemented using `CLOCK_REALTIME` .
 ### Node.js
 
 On [Windows](https://github.com/nodejs/node/blob/master/deps/v8/src/base/platform/time.cc#L575), Node.js `QueryPerformanceCounter` for its monotonic clock with fall-backs to HPET or ACPI PM timer in case an invariant TSC is not present and `CLOCK_MONOTONIC` on Linux. It uses `GetSystemTimeAsFileTime` for wall-clock time readings on Windows. 
+
+# Virtualized Timekeeping
+
+---
+
+Hypervisors like VMWare ESXi or Workstation virtualize all the above described timers for the virtual machine, though there might be trade-offs involved.
+
+- The virtualized PIT provides all the modes and three channels of the PIT timer, however, the sound generation timer might not correctly generate the frequency or duration for the requested sound. The virtualized PIT might not be able to generate high frequencies of requested interrupts, ex. 1000hz default on many Linux distros.
+- The virtualized CMOS RTC in VMWare emulates all functionalities (TOD, etc) of the RTC implemented as an offset of the host operating systems software clock. If the host clock's time is change, the guest's clock might also be changed. 
+In some systems, this can trigger an unexpected feedback loop where if the virtual machine is the time server for the host, they might go back and forth changing their clocks trying to synchronize with each other.
+- The virtualized APIC timer, ACPI timer and the TSC both present apparent time matching each other.
+
+I have not been able to find similar implementation information for KVM or other hypervisors.  
+
+## TSC Virtualization
+
+### KVM [5]
+
+In both Intel VT-x and AMD SVM, the TSC can be fully virtualized by trapping the `RDTSC`, `RDMSR`, `WRMSR` and `RDTSCP` instructions [5]. Also, it is possible to pass through the host TSC to the virtual machine. Both trapping and passthrough are implemented in KVM [5].
+
+Issues surrounding TSC synchronization arise from the fact that the CPUs frequency can be altered by the system for different reasons. This can change the rate of TSC per-processor. The Inter-CPU drift is even further amplified in the case of inter-socket drift in the case of multi-socket systems [7]. 
+
+A program reading the TSC from one core might get a different incorrect value of the TSC when reading it from another core. To mitigate this issue solutions include reading the processor ID using the CPUID instruction first and indexing into the TSC array to fetch the specific processors TSC or using the RDTSCP instruction which fetches the processor ID and the TSC value. 
+
+Apart from solutions in software, newer x86 CPUs also include an invariant TSC which operates independently of the CPUs current frequency, guaranteeing the rate of the TSC. This can even be used a wall-clock source.
+
+### VMWare [1]
+
+VMWare provides an exactly synchronized view of the TSC to the virtual machine [1], either backed by the physical TSC itself, or an emulated virtual TSC if the physical TSC turns out to be unsynchronized at the trade-off of increasing execution times of the `RDTSC` instruction. 
+
+### Hyper-V [3]
+
+Hyper-V, similar to VMWare's products, provides virtualized timer services based on a reference time source in the host. According to the Top-Level Functional Specifications (v6.0b), a per-virtual machine reference counter, four synthetic timers per-vCPU, one virtualized APIC timer per vCPU, two timer assists, and a partition reference time enlightenment based on support for an invariant TSC is available to the guest.
+
+- Reference Counter: A strictly monotonic constant rate timer seen by all virtual processors unaffected by processor or bus frequency. It runs at the same rate for all VMs, but reference counters between VM are not synchronized (no same absolute value). This counter counts as long as at least one vCPU in the VM is not suspended. This timer is exposed to the guest via a Model-specific Register (MSR).
+- Synthetic Timers: Virtualized interrupt-generataing one-shot or periodic timers. These timers are exposes to the guest via Model-specific Registers.
+- Partition Reference Time Enlightenment: An invariant time source for the virtual machine which does not require an intercept into the hypervisor. This is available only if a constant rate TSC is available on the host, as is the case with newer CPUs. 
+The invariant TSC solves the issues surrounding the older TSC implementation as its frequency remains constant irrespective of the CPU frequency, as was the case with older TSC implementation. This enlightened reference counter is exposed as a virtual reference TSC page in the guest physical addresses.
+
+{{< image src="/img/hyperv_clocksource.png" alt="HyperV Clocksource" position="center">}}
+
+In the WSL2 Kernel, the only available clocksource is based on this partition wide TSC enlightened clocksource.
+
+### VirtualBox [8]
+
+By default VirtualBox exposes the time sources available to the guest synchronized to the host's monotonic clock. However, there is also a special configuration available to make the virtual guest TSC reflect the actual time spent by the CPU executing the guest. Depending on the hardware TSC, it might be unreliable to use the TSC for measurements.
+
 
 # References
 
