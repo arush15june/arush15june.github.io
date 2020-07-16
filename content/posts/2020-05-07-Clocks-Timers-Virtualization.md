@@ -6,7 +6,7 @@ categories: ["article"]
 tags: ["virtualization", "clocks"]
 ---
 
-* The aim of this post is to learn the kinds of clocks and timing mechanism's available on a system, how they are virtualized by different hypervisors (with a focus on Hyper-V and WSL2) and what is the practical resolution of clocks and timers in both virtualized and bare-metal x86 systems accessible via programming languages like C or Golang.
+* The aim of this post is to learn the kinds of clocks and timing mechanism's available on an x86 system, how they are virtualized by different hypervisors (with a focus on Hyper-V and WSL2) and what is the practical resolution of clocks and timers in both virtualized and bare-metal x86 systems accessible via programming languages like C or Golang.
 
 
 # Clocks and Timers
