@@ -1,7 +1,7 @@
 ---
 published: true
 title: "Clocks, Timers and Virtualization"
-date: 2020-05-12T00:00:00.000Z
+date: 2020-07-12T00:00:00.000Z
 categories: ["article"]
 tags: ["virtualization", "clocks"]
 ---
