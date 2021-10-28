@@ -81,7 +81,7 @@ Hypervisors like Hyper-V run a simple OS on the bare metal CPU and use the hardw
 
 An operating system uses virtual memory to create address spaces and processes. Physical memory is divided into contiguous blocks of memory called pages. Address Spaces is a contiguous piece of memory for each process. They can be as large as 128 terabytes. Even though the physical machine does not have terabytes of physical memory, A process can traverse through the whole address space just like contiguous physical memory. Even though 32bit systems couldn't address 4GB of physical memory, processes in 32bit operating systems can have address spaces as large as 4GB. This is called Virtual Memory. Operating Systems use pages and page tables to represent the address space of the process. Implementing virtual memory systems in software is inefficient thus many CPUs come with an inbuilt Memory Management Unit which gives hardware assistance in creating virtual memory systems by providing hardware page tables and translation lookaside buffers.
 
-![page tables.jpg](/img/page tables.jpg)
+![page-tables.jpg](/img/page-tables.jpg)
 
 The x86 architecture has supported virtual memory since the 80386 with an MMU consisting of a TLB and a hardware page table walker. The walker fills the TLB by traversing hierarchical page tables, in physical memory.
 
